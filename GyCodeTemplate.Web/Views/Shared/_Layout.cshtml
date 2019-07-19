@@ -40,14 +40,6 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - GyCodeTemplate.Web</p>
-        </footer>
-    </div>
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -70,5 +62,13 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - GyCodeTemplate.Web</p>
+        </footer>
+    </div>
+
 </body>
 </html>

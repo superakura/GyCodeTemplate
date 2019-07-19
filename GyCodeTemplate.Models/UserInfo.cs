@@ -9,5 +9,7 @@ namespace GyCodeTemplate.Models
         public string UserName { get; set; }
         public string UserPwd { get; set; }
         public string Remark { get; set; }
+        public DateTime? CreatTime { get; set; }
+        public string Phone { get; set; }
     }
 }

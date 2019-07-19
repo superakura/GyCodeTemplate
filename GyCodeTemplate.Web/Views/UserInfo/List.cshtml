@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+<script>
+    $(function () {
+        $.post("/UserInfo/GetList", { },
+            function (data, textStatus, jqXHR) {
+                console.log(data);
+            }
+        );
+    });
+</script>
+
+

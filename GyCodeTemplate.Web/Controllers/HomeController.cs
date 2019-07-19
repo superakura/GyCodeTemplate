@@ -5,14 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GyCodeTemplate.Web.Models;
+using GyCodeTemplate.Service.Interface;
+using GyCodeTemplate.Repository.Interface;
+using GyCodeTemplate.Models;
 
 namespace GyCodeTemplate.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private IUserInfoService userInfoService;
+        public HomeController(IUserInfoService service)
+        {
+            userInfoService = service;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            return View(userInfoService.GetUserInfoList());
         }
 
         public IActionResult About()

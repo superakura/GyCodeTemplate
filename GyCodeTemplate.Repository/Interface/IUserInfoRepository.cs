@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using GyCodeTemplate.Models;
+using System.Linq;
 
 namespace GyCodeTemplate.Repository.Interface
 {
     public interface IUserInfoRepository
     {
-        List<UserInfo> GetList();
+        IQueryable<UserInfo> GetList();
 
-        UserInfo GetOne(int id);
+        UserInfo GetOne(int userInfoID);
+
+        void SaveUserInfo(UserInfo userInfo);
+
+        UserInfo DelUserInfo(int userInfoID);
     }
 }

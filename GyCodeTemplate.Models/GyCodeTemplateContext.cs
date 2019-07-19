@@ -32,6 +32,10 @@ namespace GyCodeTemplate.Models
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.CreatTime).HasColumnType("datetime");
+
+                entity.Property(e => e.Phone).HasMaxLength(200);
+
                 entity.Property(e => e.Remark).HasMaxLength(500);
 
                 entity.Property(e => e.UserName).HasMaxLength(500);

@@ -4,6 +4,7 @@ using System.Text;
 using GyCodeTemplate.Service.Interface;
 using GyCodeTemplate.Repository.Interface;
 using GyCodeTemplate.Models;
+using System.Linq;
 
 namespace GyCodeTemplate.Service
 {
@@ -16,7 +17,7 @@ namespace GyCodeTemplate.Service
         }
         public List<UserInfo> GetUserInfoList()
         {
-            return _userInfoRepository.GetList();
+            return _userInfoRepository.GetList().ToList();
         }
     }
 }

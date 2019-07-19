@@ -1,7 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<GyCodeTemplate.Models.UserInfo>
+<ul>
 
+@foreach (var p in Model)
+{
+    <li>@p.UserName</li>
+}
+</ul>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -92,3 +99,5 @@
         </ul>
     </div>
 </div>
+
+

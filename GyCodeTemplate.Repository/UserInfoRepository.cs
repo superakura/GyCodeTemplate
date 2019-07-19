@@ -11,14 +11,44 @@ namespace GyCodeTemplate.Repository
     {
         private GyCodeTemplateContext db = new GyCodeTemplateContext();
 
-        public List<UserInfo> GetList()
+        public IQueryable<UserInfo> GetList()
         {
-            return db.UserInfo.ToList();
+            return db.UserInfo;
         }
 
-        public UserInfo GetOne(int id)
+        public UserInfo GetOne(int userInfoID)
         {
-            return db.UserInfo.Where(w => w.Id == id).FirstOrDefault();
+            return db.UserInfo.Where(w => w.Id == userInfoID).FirstOrDefault();
+        }
+
+        public void SaveUserInfo(UserInfo userInfo)
+        {
+            if (userInfo.Id == 0)
+            {
+                db.UserInfo.Add(userInfo);
+            }
+            else
+            {
+                var info = db.UserInfo.Find(userInfo.Id);
+                if (info != null)
+                {
+                    info.UserName = userInfo.UserName;
+                    info.Phone = userInfo.Phone;
+                    info.Remark = userInfo.Remark;
+                }
+            }
+            db.SaveChanges();
+        }
+
+        public UserInfo DelUserInfo(int userInfoID)
+        {
+            var info = db.UserInfo.Find(userInfoID);
+            if (info!=null)
+            {
+                db.UserInfo.Remove(info);
+                db.SaveChanges();
+            }
+            return info;
         }
     }
 }

@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Autofac;
+using GyCodeTemplate.Repository;
+using GyCodeTemplate.Repository.Interface;
+using GyCodeTemplate.Service;
+using GyCodeTemplate.Service.Interface;
 
 namespace GyCodeTemplate.Web
 {
@@ -32,6 +36,10 @@ namespace GyCodeTemplate.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            //使用自带的DI实现注入
+            services.AddTransient<IUserInfoRepository, UserInfoRepository>();
+            services.AddTransient<IUserInfoService, UserInfoService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
