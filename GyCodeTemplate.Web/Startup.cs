@@ -37,9 +37,10 @@ namespace GyCodeTemplate.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //使用自带的DI实现注入
+            #region 使用自带的DI实现注入
             services.AddTransient<IUserInfoRepository, UserInfoRepository>();
             services.AddTransient<IUserInfoService, UserInfoService>();
+            #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

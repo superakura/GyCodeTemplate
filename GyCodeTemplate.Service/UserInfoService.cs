@@ -4,6 +4,7 @@ using System.Text;
 using GyCodeTemplate.Service.Interface;
 using GyCodeTemplate.Repository.Interface;
 using GyCodeTemplate.Models;
+using GyCodeTemplate.Models.ViewModels;
 using System.Linq;
 
 namespace GyCodeTemplate.Service
@@ -15,9 +16,22 @@ namespace GyCodeTemplate.Service
         {
             _userInfoRepository = userInfoRepository;
         }
-        public List<UserInfo> GetUserInfoList()
+
+        public VPageBootstrapTable<UserInfo> GetUserInfoList(VUserListCondition input)
         {
-            return _userInfoRepository.GetList().ToList();
+            var list = _userInfoRepository.GetList();
+            if (!string.IsNullOrEmpty(input.userName))
+            {
+                list = list.Where(w => w.UserName.Contains(input.userName));
+            }
+            if (!string.IsNullOrEmpty(input.duty))
+            {
+                list = list.Where(w => w.UserName.Contains(input.duty));
+            }
+            VPageBootstrapTable<UserInfo> page=new VPageBootstrapTable<UserInfo>();
+            page.rows = list.Skip(input.offset).Take(input.limit).ToList();
+            page.total = list.Count();
+            return page;
         }
     }
 }

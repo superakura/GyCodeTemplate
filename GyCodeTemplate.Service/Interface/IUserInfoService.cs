@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using GyCodeTemplate.Models;
+using GyCodeTemplate.Models.ViewModels;
 using GyCodeTemplate.Repository;
 
 namespace GyCodeTemplate.Service.Interface
 {
     public interface IUserInfoService
     {
-        List<UserInfo> GetUserInfoList();
+        VPageBootstrapTable<UserInfo> GetUserInfoList(VUserListCondition input);
     }
 }

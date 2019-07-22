@@ -9,7 +9,7 @@ namespace GyCodeTemplate.Repository
 {
     public class UserInfoRepository : IUserInfoRepository
     {
-        private GyCodeTemplateContext db = new GyCodeTemplateContext();
+        private readonly GyCodeTemplateContext db = new GyCodeTemplateContext();
 
         public IQueryable<UserInfo> GetList()
         {

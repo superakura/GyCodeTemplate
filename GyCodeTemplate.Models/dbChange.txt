@@ -1,0 +1,2 @@
+﻿//更新数据库对象模型
+//Scaffold-DbContext "Data Source=.;Initial Catalog=GyCodeTemplate;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -O . -F

@@ -21,7 +21,7 @@ namespace GyCodeTemplate.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(userInfoService.GetUserInfoList());
+            return View();
         }
 
         public IActionResult About()

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyCodeTemplate.Common", "GyCodeTemplate.Common\GyCodeTemplate.Common.csproj", "{B0F90E0E-1111-4F9F-A33C-2BE097EA86EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GyCodeTemplate.Common", "GyCodeTemplate.Common\GyCodeTemplate.Common.csproj", "{B0F90E0E-1111-4F9F-A33C-2BE097EA86EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyCodeTemplate.Web", "GyCodeTemplate.Web\GyCodeTemplate.Web.csproj", "{C3C755AB-A703-46ED-B4EA-1C2A3938621A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GyCodeTemplate.Web", "GyCodeTemplate.Web\GyCodeTemplate.Web.csproj", "{C3C755AB-A703-46ED-B4EA-1C2A3938621A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyCodeTemplate.Models", "GyCodeTemplate.Models\GyCodeTemplate.Models.csproj", "{BCAF8952-4E81-41CC-89DE-4C5967A1CEF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GyCodeTemplate.Models", "GyCodeTemplate.Models\GyCodeTemplate.Models.csproj", "{BCAF8952-4E81-41CC-89DE-4C5967A1CEF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyCodeTemplate.Service", "GyCodeTemplate.Service\GyCodeTemplate.Service.csproj", "{2E52A6C6-2466-4CCB-B02C-65EC05792D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GyCodeTemplate.Service", "GyCodeTemplate.Service\GyCodeTemplate.Service.csproj", "{2E52A6C6-2466-4CCB-B02C-65EC05792D24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyCodeTemplate.Repository", "GyCodeTemplate.Repository\GyCodeTemplate.Repository.csproj", "{C2AE248F-F114-4442-BEEE-9ED637D99D72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GyCodeTemplate.Repository", "GyCodeTemplate.Repository\GyCodeTemplate.Repository.csproj", "{C2AE248F-F114-4442-BEEE-9ED637D99D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GyCodeTemplate.UnitTest", "GyCodeTemplate.UnitTest\GyCodeTemplate.UnitTest.csproj", "{AEDFC961-4975-482F-B358-CF94837BF44B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C2AE248F-F114-4442-BEEE-9ED637D99D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2AE248F-F114-4442-BEEE-9ED637D99D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2AE248F-F114-4442-BEEE-9ED637D99D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEDFC961-4975-482F-B358-CF94837BF44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDFC961-4975-482F-B358-CF94837BF44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDFC961-4975-482F-B358-CF94837BF44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDFC961-4975-482F-B358-CF94837BF44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,5 +11,8 @@ namespace GyCodeTemplate.Models
         public string Remark { get; set; }
         public DateTime? CreatTime { get; set; }
         public string Phone { get; set; }
+        public string Sex { get; set; }
+        public string Duty { get; set; }
+        public byte? State { get; set; }
     }
 }
