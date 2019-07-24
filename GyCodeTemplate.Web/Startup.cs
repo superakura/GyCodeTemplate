@@ -39,7 +39,9 @@ namespace GyCodeTemplate.Web
 
             #region 使用自带的DI实现注入
             services.AddTransient<IUserInfoRepository, UserInfoRepository>();
+            services.AddTransient<IDeptInfoRepository, DeptInfoRepository>();
             services.AddTransient<IUserInfoService, UserInfoService>();
+            //services.AddTransient<IDeptInfoService, >();
             #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

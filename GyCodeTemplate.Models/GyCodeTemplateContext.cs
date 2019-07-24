@@ -15,6 +15,7 @@ namespace GyCodeTemplate.Models
         {
         }
 
+        public virtual DbSet<DeptInfo> DeptInfo { get; set; }
         public virtual DbSet<LogInfo> LogInfo { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
 
@@ -23,12 +24,25 @@ namespace GyCodeTemplate.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=GyCodeTemplate;Integrated Security=True",b=>b.UseRowNumberForPaging());
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=GyCodeTemplate;Integrated Security=True", b => b.UseRowNumberForPaging());
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<DeptInfo>(entity =>
+            {
+                entity.HasKey(e => e.DeptId);
+
+                entity.Property(e => e.DeptId).HasColumnName("DeptID");
+
+                entity.Property(e => e.DeptFatherId).HasColumnName("DeptFatherID");
+
+                entity.Property(e => e.DeptName).HasMaxLength(100);
+
+                entity.Property(e => e.DeptRemark).HasMaxLength(200);
+            });
+
             modelBuilder.Entity<LogInfo>(entity =>
             {
                 entity.HasKey(e => e.LogId);
@@ -55,6 +69,8 @@ namespace GyCodeTemplate.Models
                 entity.Property(e => e.Remark).HasMaxLength(500);
 
                 entity.Property(e => e.Sex).HasMaxLength(50);
+
+                entity.Property(e => e.UserDeptId).HasColumnName("UserDeptID");
 
                 entity.Property(e => e.UserName).HasMaxLength(500);
 

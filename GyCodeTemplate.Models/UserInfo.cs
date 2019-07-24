@@ -14,5 +14,6 @@ namespace GyCodeTemplate.Models
         public string Sex { get; set; }
         public string Duty { get; set; }
         public byte? State { get; set; }
+        public int? UserDeptId { get; set; }
     }
 }
