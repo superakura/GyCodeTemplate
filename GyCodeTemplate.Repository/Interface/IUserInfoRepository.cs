@@ -12,7 +12,7 @@ namespace GyCodeTemplate.Repository.Interface
 
         UserInfo GetOne(int userInfoID);
 
-        void SaveUserInfo(UserInfo userInfo);
+        bool SaveUserInfo(UserInfo userInfo);
 
         UserInfo DelUserInfo(int userInfoID);
     }

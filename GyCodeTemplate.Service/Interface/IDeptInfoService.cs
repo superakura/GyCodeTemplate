@@ -10,5 +10,13 @@ namespace GyCodeTemplate.Service.Interface
     public interface IDeptInfoService
     {
         DeptInfo GetOneDeptInfo(int deptID);
+
+        List<DeptInfo> GetDeptFatherList();
+
+        List<DeptInfo> GetDeptList();
+
+        DeptInfo DelDeptInfo(int deptID);
+
+        bool SaveDept(DeptInfo deptInfo);
     }
 }

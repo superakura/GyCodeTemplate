@@ -41,7 +41,7 @@ namespace GyCodeTemplate.Web
             services.AddTransient<IUserInfoRepository, UserInfoRepository>();
             services.AddTransient<IDeptInfoRepository, DeptInfoRepository>();
             services.AddTransient<IUserInfoService, UserInfoService>();
-            //services.AddTransient<IDeptInfoService, >();
+            services.AddTransient<IDeptInfoService, DeptInfoService>();
             #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

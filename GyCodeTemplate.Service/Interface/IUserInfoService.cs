@@ -17,5 +17,7 @@ namespace GyCodeTemplate.Service.Interface
         UserInfo GetOneUserInfo(int userID);
 
         UserInfo DelUserInfo(int userID);
+
+        bool ChangeUserInfoState(byte state, int userID);
     }
 }

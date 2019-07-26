@@ -21,7 +21,7 @@ namespace GyCodeTemplate.Repository
             return db.UserInfo.Where(w => w.Id == userInfoID).FirstOrDefault();
         }
 
-        public void SaveUserInfo(UserInfo userInfo)
+        public bool SaveUserInfo(UserInfo userInfo)
         {
             if (userInfo.Id == 0)
             {
@@ -35,15 +35,20 @@ namespace GyCodeTemplate.Repository
                     info.UserName = userInfo.UserName;
                     info.Phone = userInfo.Phone;
                     info.Remark = userInfo.Remark;
+                    info.UserDeptId = userInfo.UserDeptId;
+                    info.Sex = userInfo.Sex;
+                    info.State = userInfo.State;
+                    info.Duty = userInfo.Duty;
+                    info.UserPwd = userInfo.UserPwd;
                 }
             }
-            db.SaveChanges();
+            return db.SaveChanges() == 1 ? true : false;
         }
 
         public UserInfo DelUserInfo(int userInfoID)
         {
             var info = db.UserInfo.Find(userInfoID);
-            if (info!=null)
+            if (info != null)
             {
                 db.UserInfo.Remove(info);
                 db.SaveChanges();

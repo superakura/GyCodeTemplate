@@ -51,14 +51,33 @@ namespace GyCodeTemplate.Web.Controllers
         {
             var userID = 0;
             int.TryParse(Request.Form["userID"], out userID);
+
             //ID为0，创建一个对象，执行添加。ID不为0，执行更新。
             UserInfo info = userID == 0 ? new UserInfo() : _IService.GetOneUserInfo(userID);
+
             info.UserName = Request.Form["userName"];
             info.Duty = Request.Form["duty"];
             info.Phone = Request.Form["phone"];
             info.Remark= Request.Form["remark"];
+            var deptUserID = 0;
+            int.TryParse(Request.Form["deptUserID"], out deptUserID);
+            info.UserDeptId = deptUserID;
+            info.State = 0;//用户状态默认为正常
+            //如果添加用户，则设置用户创建日期字段
+            if (userID==0)
+            {
+                info.CreatTime = DateTime.Now;
+            }
 
             return _IService.SaveUserInfo(info) ? "ok" : "error";
+        }
+
+        [HttpPost]
+        public JsonResult GetOne()
+        {
+            var userID = 0;
+            int.TryParse(Request.Form["userID"], out userID);
+            return Json(_IService.GetOneUserInfo(userID));
         }
     }
 }

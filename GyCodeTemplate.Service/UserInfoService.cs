@@ -20,6 +20,19 @@ namespace GyCodeTemplate.Service
             _deptInfoRepository = deptInfoRepository;
         }
 
+        /// <summary>
+        /// 用户状态变更方法，用于用户锁定，用户软删除
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public bool ChangeUserInfoState(byte state, int userID)
+        {
+            var info = _userInfoRepository.GetOne(userID);
+            info.State = state;
+            return _userInfoRepository.SaveUserInfo(info);
+        }
+
         public UserInfo DelUserInfo(int userID)
         {
             throw new NotImplementedException();
@@ -71,9 +84,14 @@ namespace GyCodeTemplate.Service
             return page;
         }
 
+        /// <summary>
+        /// 添加、修改用户信息方法
+        /// </summary>
+        /// <param name="userInfo"></param>
+        /// <returns></returns>
         public bool SaveUserInfo(UserInfo userInfo)
         {
-            throw new NotImplementedException();
+            return _userInfoRepository.SaveUserInfo(userInfo);
         }
     }
 }
