@@ -15,6 +15,7 @@ using GyCodeTemplate.Repository;
 using GyCodeTemplate.Repository.Interface;
 using GyCodeTemplate.Service;
 using GyCodeTemplate.Service.Interface;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace GyCodeTemplate.Web
 {
@@ -30,21 +31,38 @@ namespace GyCodeTemplate.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            services.AddMvc();
+            //添加认证Cookie信息
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+             .AddCookie(options =>
+             {
+                 options.LoginPath = new PathString("/login");
+                 options.AccessDeniedPath = new PathString("/denied");
+
+             });
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
 
             #region 使用自带的DI实现注入
+            //AddTransient瞬时单例模式，每次都创建新的实例
             services.AddTransient<IUserInfoRepository, UserInfoRepository>();
             services.AddTransient<IDeptInfoRepository, DeptInfoRepository>();
             services.AddTransient<IUserInfoService, UserInfoService>();
             services.AddTransient<IDeptInfoService, DeptInfoService>();
+
+            //AddScoped域注册
+            //services.AddScoped<IDeptInfoService, DeptInfoService>();
+
+            //单例注册模式
+            //services.AddSingleton<IDeptInfoRepository, DeptInfoRepository>();
+
             #endregion
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,9 +78,10 @@ namespace GyCodeTemplate.Web
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            app.UseAuthentication();
+            //app.UseCookiePolicy();
 
             app.UseMvc(routes =>
             {

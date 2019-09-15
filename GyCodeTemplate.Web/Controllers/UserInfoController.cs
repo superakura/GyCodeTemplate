@@ -12,11 +12,13 @@ namespace GyCodeTemplate.Web.Controllers
     public class UserInfoController : Controller
     {
         //目前需解决的问题：
-        //1、单元测试方法的实现
-        //2、crud的命名规范
-        //3、用户权限控制的实现
-        //4、页面dto处理
+        //1、单元测试实现
+        //2、命名规范
+        //3、用户权限控制的实现，系统认证架构的实现。
+        //4、页面dto处理,dto和entity的自动映射
         //5、利用autofac实现自动批量注入
+        //6、repository泛型的实现。
+        //7、unit of work的实现
         private readonly IUserInfoService _IService;
         public UserInfoController(IUserInfoService service)
         {
